@@ -19,7 +19,7 @@ contract InteractWithGovernance is Script {
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(deployerPrivateKey);
-        
+
         vm.startBroadcast(deployerPrivateKey);
 
         // Initialize contracts
@@ -36,11 +36,11 @@ contract InteractWithGovernance is Script {
         // Create a proposal
         uint256 newValue = 42;
         string memory description = "Change Box value to 42";
-        
+
         address[] memory targets = new address[](1);
         uint256[] memory values = new uint256[](1);
         bytes[] memory calldatas = new bytes[](1);
-        
+
         targets[0] = address(box);
         values[0] = 0;
         calldatas[0] = abi.encodeWithSignature("store(uint256)", newValue);
@@ -50,7 +50,7 @@ contract InteractWithGovernance is Script {
         console2.log("Proposal state:", uint256(governor.state(proposalId)));
 
         vm.stopBroadcast();
-        
+
         console2.log("=== Integration test completed ===");
         console2.log("Next steps:");
         console2.log("1. Wait for voting delay to pass");
