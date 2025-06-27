@@ -1,0 +1,30 @@
+{
+  "name": "governance-dao",
+  "version": "1.0.0",
+  "description": "A decentralized autonomous organization (DAO) built with Foundry and React",
+  "scripts": {
+    "install": "forge install && cd frontend && npm install",
+    "build": "forge build",
+    "test": "forge test",
+    "deploy:local": "forge script script/DeployGovernance.s.sol --rpc-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast",
+    "frontend:dev": "cd frontend && npm run dev",
+    "frontend:build": "cd frontend && npm run build",
+    "start:anvil": "anvil",
+    "start": "npm run start:anvil"
+  },
+  "keywords": [
+    "dao",
+    "governance",
+    "blockchain",
+    "solidity",
+    "foundry",
+    "react",
+    "defi"
+  ],
+  "author": "Ansh Nohria",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnshNohria/GovernanceDAO.git"
+  }
+}
