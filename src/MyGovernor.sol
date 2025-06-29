@@ -3,10 +3,13 @@ pragma solidity ^0.8.25;
 
 import {Governor} from "lib/openzeppelin-contracts/contracts/governance/Governor.sol";
 import {GovernorSettings} from "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorSettings.sol";
-import {GovernorCountingSimple} from "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorCountingSimple.sol";
+import {GovernorCountingSimple} from
+    "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorCountingSimple.sol";
 import {GovernorVotes} from "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorVotes.sol";
-import {GovernorVotesQuorumFraction} from "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
-import {GovernorTimelockControl} from "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorTimelockControl.sol";
+import {GovernorVotesQuorumFraction} from
+    "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
+import {GovernorTimelockControl} from
+    "lib/openzeppelin-contracts/contracts/governance/extensions/GovernorTimelockControl.sol";
 import {TimelockController} from "lib/openzeppelin-contracts/contracts/governance/TimelockController.sol";
 import {IVotes} from "lib/openzeppelin-contracts/contracts/governance/utils/IVotes.sol";
 
@@ -26,21 +29,11 @@ contract MyGovernor is
         GovernorTimelockControl(_timelock)
     {}
 
-    function votingDelay()
-        public
-        view
-        override(Governor, GovernorSettings)
-        returns (uint256)
-    {
+    function votingDelay() public view override(Governor, GovernorSettings) returns (uint256) {
         return super.votingDelay();
     }
 
-    function votingPeriod()
-        public
-        view
-        override(Governor, GovernorSettings)
-        returns (uint256)
-    {
+    function votingPeriod() public view override(Governor, GovernorSettings) returns (uint256) {
         return super.votingPeriod();
     }
 
@@ -53,12 +46,7 @@ contract MyGovernor is
         return super.quorum(blockNumber);
     }
 
-    function proposalThreshold()
-        public
-        view
-        override(Governor, GovernorSettings)
-        returns (uint256)
-    {
+    function proposalThreshold() public view override(Governor, GovernorSettings) returns (uint256) {
         return super.proposalThreshold();
     }
 
@@ -91,12 +79,7 @@ contract MyGovernor is
         return super._cancel(targets, values, calldatas, descriptionHash);
     }
 
-    function _executor()
-        internal
-        view
-        override(Governor, GovernorTimelockControl)
-        returns (address)
-    {
+    function _executor() internal view override(Governor, GovernorTimelockControl) returns (address) {
         return super._executor();
     }
 
