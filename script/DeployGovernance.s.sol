@@ -36,7 +36,7 @@ contract DeployGovernance is Script {
         // Setup roles
         bytes32 proposerRole = timeLock.PROPOSER_ROLE();
         bytes32 executorRole = timeLock.EXECUTOR_ROLE();
-        bytes32 adminRole = timeLock.TIMELOCK_ADMIN_ROLE();
+        bytes32 adminRole = timeLock.DEFAULT_ADMIN_ROLE();
 
         // Grant roles
         timeLock.grantRole(proposerRole, address(governor));

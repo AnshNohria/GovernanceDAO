@@ -32,7 +32,7 @@ contract GovernorTest is Test {
         governor = new MyGovernor(govToken, timeLock);
         bytes32 proposer_role = timeLock.PROPOSER_ROLE();
         bytes32 executor_role = timeLock.EXECUTOR_ROLE();
-        bytes32 admin_role = timeLock.TIMELOCK_ADMIN_ROLE();
+        bytes32 admin_role = timeLock.DEFAULT_ADMIN_ROLE();
         timeLock.grantRole(proposer_role, address(governor));
         timeLock.grantRole(executor_role, address(0));
         timeLock.revokeRole(admin_role, address(USER));
