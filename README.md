@@ -33,16 +33,27 @@ git clone https://github.com/AnshNohria/GovernanceDAO.git
 cd foundry-dao
 ```
 
-2. Install Foundry dependencies:
+2. **Important**: Initialize git submodules (required for dependencies):
+```bash
+git submodule update --init --recursive
+```
+
+3. Install Foundry dependencies:
 ```bash
 forge install
 ```
 
-3. Install frontend dependencies:
+4. Install frontend dependencies:
 ```bash
 cd frontend
 npm install
 cd ..
+```
+
+**Alternative**: Use the setup script for automatic setup:
+```bash
+chmod +x setup.sh
+./setup.sh
 ```
 
 ### Development
@@ -81,6 +92,17 @@ Run tests with verbosity:
 ```bash
 forge test -vvv
 ```
+
+### Troubleshooting
+
+**Build fails with "Source not found" errors:**
+- Ensure git submodules are initialized: `git submodule update --init --recursive`
+- Run `forge install` to install dependencies
+- Check that `lib/` directory contains `forge-std` and `openzeppelin-contracts`
+
+**GitHub Actions failing:**
+- The CI workflow automatically handles submodule initialization
+- Ensure the `.gitmodules` file is committed to the repository
 
 ### How It Works
 
